@@ -1,80 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 body {
-background-color: rgb(249, 192, 232);
-max-width: 500px;
-margin: 0 auto; 
-color: whitesmoke;
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url("fundo.jpg");
+  background-color: rgb(252, 191, 234);
+  max-width: 600px;
+  margin: auto auto;
+  color: whitesmoke;
+}
 
+/* CONTAINER */
+.container {
+  background-color: gainsboro;
+  width: 400px; /* Ajustado para não ultrapassar o body */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 100px auto 0;
+}
 
-};
-
-
+/* TÍTULO */
 h1 {
-font-size: 40px;
-color: palevioletred;
-text-align: center
+  font-size: 40px;
+  color: rgb(247, 237, 240);
+  text-align: center;
+}
 
-};
+/* INPUT */
 
-input {
-height: 40px;
-border: 4px, solid, pink;
-background-color: rgb(248, 99, 203);
-color: white;
-outline: none;
-width: 80%;
-
-
-};
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
 
 
-button {
-background-color: rgb(201, 121, 169);
-color: white;
-text-align: center;
-border: none;
-height: 44px;
-cursor: pointer;
-transition:0.5s;
-width: 90px;
+.input-task {
+  flex: 1;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  background-color: rgb(250, 239, 247);
+  color: rgb(10, 1, 1);
+  outline: none;
+  width: 260px;
+  padding-left: 10px;
+  font-weight: 700;
+}
 
-};
+/* BOTÃO */
+.button-add-task {
+  background-color: rgb(201, 121, 169);
+  color: white;
+  text-align: center;
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 5px;
+  font-size: 17px;
+  padding: 0 20px;
+  float: right;
+}
 
-button:hover {
-background-color: rgb(234, 15, 117);
-height: 55px;
+.button-add-task:hover {
+  opacity: 0.8;
+}
 
-};
+.button-add-task:active {
+  opacity: 0.6;
+}
 
-button:active {
-background-color: rgb(179, 4, 86);
+/* LISTA */
+.list-tasks {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin-top: 50px;
+}
 
-};
+/* ITEM DA LISTA */
+.task {
+  background-color: rgb(248, 242, 245);
+  padding: 0 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: rgb(70, 70, 70);
+  font-weight: bold;
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
 
-ul {
-list-style-type: none;
-padding: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-};
-
-li {
-background-color: deeppink;
-padding: 10px;
-margin: 10px auto;
-border-radius: 5px;
-color: whitesmoke;
-font-weight: bold;
-
-display: flex;
-align-items: center;
-justify-content: space-between;
-
-
-};
+  cursor: pointer;
+}
 
 span {
   cursor: pointer;
+}
 
-};
+/* IMAGEM (ex: botão apagar) */
+img {
+  height: 25px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
 
+.task:hover img {
+  opacity: 1;
+}
+
+.done p {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

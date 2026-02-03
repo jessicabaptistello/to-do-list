@@ -17,30 +17,51 @@ Excluir tarefas;
 
 */ 
 
-function adicionarTarefa(){
-   // console.log("Cliquei no botão")
-    let input = document.querySelector("input").value
-    console.log(input)
+const button = document.querySelector('.button-add-task')
+const input = document.querySelector('.input-task')
+const listaCompleta = document.querySelector('.list-tasks')
 
+let minhaLista = []
 
-    let li = document.createElement("li")
-    li.innerHTML = input + '<span onclick="deletarTarefa(this)">🗑️</span>'
+function adicionarNovaTarefa() {
 
-   //console.log(li);
+    if (input.value === "") return
 
-   document.querySelector("ul").appendChild(li)
+    minhaLista.push({
+        texto: input.value,
+        concluida: false
+    })
 
-    document.querySelector("input").value = ""
+    input.value = ""  // limpa o input
+    mostrarTarefas()
+}
 
-};
+function mostrarTarefas() {
 
-function deletarTarefa(li) {
-    li.parentElement.remove()
+    let novaLista = ''
 
-};
+    minhaLista.forEach((tarefa, posicao) => {
 
+        novaLista += `
+        <li class="task ${tarefa.concluida ? 'done' : ''}">
+            <img src="./check.jpg" onclick="concluirTarefa(${posicao})">
+            <p>${tarefa.texto}</p>
+            <span onclick="deletarTarefa(${posicao})">🗑️</span>
+        </li>
+        `
+    })
 
+    listaCompleta.innerHTML = novaLista
+}
 
+function concluirTarefa(posicao) {
+    minhaLista[posicao].concluida = !minhaLista[posicao].concluida
+    mostrarTarefas()
+}
 
+function deletarTarefa(posicao) {
+    minhaLista.splice(posicao, 1)
+    mostrarTarefas()
+}
 
-
+button.addEventListener('click', adicionarNovaTarefa)
