@@ -8,18 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Minha lista de Tarefas</h1>
- <div class="container">
 
-  <div class="input-area">
-    <input class="input-task" placeholder="O que tenho que fazer..."/> 
-    <button class="button-add-task">Adicionar</button>
-  </div>
+    <h1>Minha lista de Tarefas</h1>
 
-  <ul class="list-tasks"></ul>
+    <h2>Tarefas por fazer</h2>
+    <div class="container">
 
-</div>
+        <div class="input-area">
+            <input class="input-task" placeholder="Adicionar nova tarefa"/> 
+            <button class="button-add-task">Adicionar</button>
+        </div>
 
+        <ul id="lista-pendentes"></ul>
+
+    </div>
+
+    <h3>Tarefas concluídas</h3>
+    <div class="container">
+
+        <ul id="lista-concluidas"></ul>
+
+    </div>
 
 <script src="scripts.js"></script>
 </body>
