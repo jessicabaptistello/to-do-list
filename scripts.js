@@ -1,13 +1,14 @@
-console.log("Olá mundo, eu sou a Jessica e esta é a minha To-do-list");
+/*console.log("Olá mundo, eu sou a Jessica e esta é a minha To-do-list");
 
-/* lista de tarefas 
+ lista de tarefas 
 
 [x] Saber quando o botao foi clicado;
 [x] Pegar texto do input;
 [x] Colocar o texto na pela;
-[] Deletar a tarefa quando clicar no meu emoticon;
-[] Salvar lista;
-[] tirar o que ta escrito no input;
+[X] Deletar a tarefa quando clicar no meu emoticon;
+[X] Salvar lista;
+[X] tirar o que ta escrito no input;
+[X] Duas caixas
 
 Obrigatório:
 
@@ -19,7 +20,9 @@ Excluir tarefas;
 
 const button = document.querySelector('.button-add-task')
 const input = document.querySelector('.input-task')
-const listaCompleta = document.querySelector('.list-tasks')
+
+const listaPendentes = document.querySelector('#lista-pendentes')
+const listaConcluidas = document.querySelector('#lista-concluidas')
 
 let minhaLista = []
 
@@ -32,26 +35,35 @@ function adicionarNovaTarefa() {
         concluida: false
     })
 
-    input.value = ""  // limpa o input
+    input.value = ""
     mostrarTarefas()
 }
 
 function mostrarTarefas() {
 
-    let novaLista = ''
+    let listaPendentesHTML = ''
+    let listaConcluidasHTML = ''
 
     minhaLista.forEach((tarefa, posicao) => {
 
-        novaLista += `
+        let itemHTML = `
         <li class="task ${tarefa.concluida ? 'done' : ''}">
             <img src="./check.jpg" onclick="concluirTarefa(${posicao})">
             <p>${tarefa.texto}</p>
             <span onclick="deletarTarefa(${posicao})">🗑️</span>
         </li>
         `
+
+        if (tarefa.concluida) {
+            listaConcluidasHTML += itemHTML
+        } else {
+            listaPendentesHTML += itemHTML
+        }
+
     })
 
-    listaCompleta.innerHTML = novaLista
+    listaPendentes.innerHTML = listaPendentesHTML
+    listaConcluidas.innerHTML = listaConcluidasHTML
 }
 
 function concluirTarefa(posicao) {
