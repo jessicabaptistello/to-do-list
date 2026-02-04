@@ -6,8 +6,9 @@
 }
 
 body {
-  background-image: url("fundo.jpg");
-  background-color: rgb(252, 191, 234);
+ /* background-image: url("fundo.jpg");
+  background-color: rgb(252, 191, 234); */
+  background-image: linear-gradient(to right, rgb(66, 64, 65) , rgba(110, 107, 107, 0));
   max-width: 600px;
   margin: auto auto;
   color: whitesmoke;
@@ -53,7 +54,7 @@ h1 {
 
 /* BOTÃO */
 .button-add-task {
-  background-color: rgb(201, 121, 169);
+  background-color: rgba(35, 29, 32, 0.199);
   color: white;
   text-align: center;
   border: none;
